@@ -146,9 +146,11 @@ public class PracticeFormsPage extends BasePage {
     }
 
     public void fillCity(String cityValue){
-       city.click();
-       selectCity.sendKeys(cityValue);
-        selectCity.sendKeys(Keys.ENTER);
+        elementMethods.clickElement(city);
+        elementMethods.fillElement(selectCity, cityValue, Keys.ENTER);
+//       city.click();
+//       selectCity.sendKeys(cityValue);
+//        selectCity.sendKeys(Keys.ENTER);
     }
 
     public void clickSubmit(){
