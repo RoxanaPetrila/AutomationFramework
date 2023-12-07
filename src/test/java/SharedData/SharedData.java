@@ -15,7 +15,7 @@ public class SharedData {
 
     private WebDriver driver;
 
-   @BeforeMethod    // se va executa ca o preconditie inaintea testului tau
+     // se va executa ca o preconditie inaintea testului tau
     public void setup(){
 
         driver = new ChromeDriver();
@@ -29,7 +29,7 @@ public class SharedData {
 
     }
 
-    @AfterMethod // postconditii - inchide driver-ul respectiv
+     // postconditii - inchide driver-ul respectiv
     public void clear (){
 
        driver.quit();

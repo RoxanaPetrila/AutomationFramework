@@ -1,5 +1,6 @@
 package Pages;
 
+import ObjectData.FormTableObject;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -68,18 +69,18 @@ public class PracticeFormsPage extends BasePage {
     @FindBy(id="closeLargeModal")
     private WebElement closeButton;
 
-    public void fillPracticeForm(String firstName, String lastName, String emailAddress,
-                                 String mobile, String subjects, String address, String state, String city){
-        fillFirstName(firstName);
-        fillLastName(lastName);
-        fillUserEmail(emailAddress);
+    public void fillPracticeForm(FormTableObject formTableObject){
+        fillFirstName(formTableObject.getFirstNameValue());
+        fillLastName(formTableObject.getLastNameValue());
+        fillUserEmail(formTableObject.getEmailAddressValue());
         fillGender();
-        fillMobile(mobile);
-        fillSubjects(subjects);
+        fillMobile(formTableObject.getMobileValue());
+        fillSubjects(formTableObject.getSubjectsValue());
+        elementMethods.scrollByPixels(0,400);
         fillReading();
-        fillAddress(address);
-        fillState(state);
-        fillCity(city);
+        fillAddress(formTableObject.getAddressValue());
+        fillState(formTableObject.getStateValue());
+        fillCity(formTableObject.getCityValue());
 
     }
     //facem o metoda cu return care sa fie o multime ce preia valorile de pe cele 2
@@ -135,7 +136,7 @@ public class PracticeFormsPage extends BasePage {
 
     public void fillState(String stateValue) {
         elementMethods.scrollByPixels(0,450);
-        elementMethods.clickElement(state);
+        elementMethods.clickJSElement(state);
         elementMethods.fillElement(selectState, stateValue, Keys.ENTER);
 
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -146,7 +147,7 @@ public class PracticeFormsPage extends BasePage {
     }
 
     public void fillCity(String cityValue){
-        elementMethods.clickElement(city);
+        elementMethods.clickJSElement(city);
         elementMethods.fillElement(selectCity, cityValue, Keys.ENTER);
 //       city.click();
 //       selectCity.sendKeys(cityValue);
