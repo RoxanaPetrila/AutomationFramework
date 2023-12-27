@@ -1,5 +1,6 @@
 package Pages;
 
+import ObjectData.AlertObject;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -62,9 +63,9 @@ public class AlertPage extends BasePage{
 //        Alert alertOkCancel = driver.switchTo().alert();
 //        alertOkCancel .dismiss();
     }
-    public void interractAlertValue(String value){
+    public void interractAlertValue(AlertObject alertObject){
         alertValueButton.click();
-        alertMethods.fillAlert(value);
+        alertMethods.fillAlert(alertObject.getAlertValue());
 //        Alert alertValue = driver.switchTo().alert();
 //        alertValue.sendKeys(value);
 //        alertValue .accept();

@@ -1,5 +1,6 @@
 package Tests;
 
+import ObjectData.AlertObject;
 import Pages.AlertFrameWindowPage;
 import Pages.AlertPage;
 import Pages.HomePage;
@@ -9,22 +10,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
+import SharedData.Hooks;
 import java.time.Duration;
 
-public class AlertTest extends SharedData {
-
-
+public class AlertTest extends Hooks {
     @Test
     public void test_method() {
 
-
+        AlertObject alertObject = new AlertObject(testData);
         HomePage homePage = new HomePage(getDriver()); // ia driverul din clasa parinte, il vede in copil
-
-                //chemi obiectul tau si prin mostenire aduci restul
-        homePage.clickAlertFrameWindow();
-
-        
+        homePage.clickAlertFrameWindow();  //chemi obiectul tau si prin mostenire aduci restul
 
         AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(getDriver());
         alertFrameWindowPage.clickAlerts();
@@ -33,7 +28,7 @@ public class AlertTest extends SharedData {
         alertPage.interractAlertOk();
         alertPage.interractAlertDelay();
         alertPage.interractAlertDismiss();
-        alertPage.interractAlertValue("Acesta este un test");
+        alertPage.interractAlertValue(alertObject);
 
 //        driver = new ChromeDriver();
 //        driver.get("https://demoqa.com/");

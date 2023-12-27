@@ -1,5 +1,6 @@
 package Pages;
 
+import ObjectData.WebTableObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,38 +42,41 @@ public class WebTablesPage extends BasePage{
 //    @FindBy(xpath= "//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even' ]")
 //    private List<WebElement> expectedEntries;   nu se mai introduce pentru ca ai deja definit in actual entries, el il stie deja
 
-    public void addNewEntry(String firstNameValue, String lastNameValue, String emailAddressValue, String ageValue,
-                            String salaryValue, String departmentValue){
+    public void addNewEntry(WebTableObject webTableObject){
         Integer actualTableSize= actualEntries.size();
 //        addButton.click();
         elementMethods.clickElement(addButton);
-        elementMethods.fillElement(firstName, firstNameValue);
-        elementMethods.fillElement(lastName, lastNameValue);
+        elementMethods.fillElement(firstName, webTableObject.getFirstNameValue());
+        elementMethods.fillElement(lastName, webTableObject.getLastNameValue());
+        elementMethods.fillElement(emailAddress, webTableObject.getEmailAddressValue());
+        elementMethods.fillElement(ageElement, webTableObject.getAgeValue());
+        elementMethods.fillElement(salaryElement, webTableObject.getSalaryValue());
+        elementMethods.fillElement(departmentElement, webTableObject.getDepartmentValue());
 //        firstName.sendKeys(firstNameValue);
 //        lastName.sendKeys(lastNameValue);
-        emailAddress.sendKeys(emailAddressValue);
-        ageElement.sendKeys(ageValue);
-        salaryElement.sendKeys(salaryValue);
-        departmentElement.sendKeys(departmentValue);
-        submitButton.click();
+//        emailAddress.sendKeys(emailAddressValue);
+//        ageElement.sendKeys(ageValue);
+//        salaryElement.sendKeys(salaryValue);
+//        departmentElement.sendKeys(departmentValue);
+//        submitButton.click();
 
         //metoda asta adauga entry-uri noi, apoi vine medota de mai jos care valideaza ca 3+1 = 4.
+        validateNewEntry(actualTableSize, webTableObject);
 
-        validateNewEntry(actualTableSize, firstNameValue, lastNameValue, emailAddressValue, ageValue, salaryValue, departmentValue);
+//        validateNewEntry(actualTableSize, firstNameValue, lastNameValue, emailAddressValue, ageValue, salaryValue, departmentValue);
     }
-    private void validateNewEntry(Integer actualTableSize, String firstNameValue, String lastNameValue, String emailAddressValue, String ageValue,
-                                  String salaryValue, String departmentValue){
+    private void validateNewEntry(Integer actualTableSize,WebTableObject webTableObject ){
         Integer expectedTableSize = actualEntries.size();
         Assert.assertTrue(actualTableSize+1 == expectedTableSize);
         String lastEntryTable = actualEntries.get(actualTableSize).getText();
 
-        Assert.assertTrue(lastEntryTable.contains(firstNameValue));
-        Assert.assertTrue(lastEntryTable.contains(lastNameValue));
-        Assert.assertTrue(lastEntryTable.contains(emailAddressValue));
-        Assert.assertTrue(lastEntryTable.contains(ageValue));
-        Assert.assertTrue(lastEntryTable.contains(ageValue));
-        Assert.assertTrue(lastEntryTable.contains(salaryValue));
-        Assert.assertTrue(lastEntryTable.contains(departmentValue));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getFirstNameValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getLastNameValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getAgeValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getEmailAddressValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getSalaryValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getDepartmentValue()));
+
 
 
 

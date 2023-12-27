@@ -1,5 +1,6 @@
 package Tests;
 
+import ObjectData.WebTableObject;
 import Pages.ElementsPage;
 import Pages.HomePage;
 import Pages.WebTablesPage;
@@ -12,18 +13,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import SharedData.Hooks;
 import java.io.*;
 import java.util.List;
 import java.util.Properties;
 
-public class WebTableTest extends SharedData {
+public class WebTableTest extends Hooks {
 
 
 
     @Test
 
-    public void test_method() throws IOException {
+    public void test_method()  {
 
         //primul lucru - trebuie sa intrape  driver-ul web si sa viziteze un site
 
@@ -34,25 +35,22 @@ public class WebTableTest extends SharedData {
 //        JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //        js.executeScript("window.scrollBy(0,450)", "");
 
+        WebTableObject webTableObject = new WebTableObject(testData);
         HomePage homePage = new HomePage(getDriver());
         homePage.clickElements();
 
         ElementsPage elementsPage = new ElementsPage(getDriver());
         elementsPage.clickWebTables();
 
-        FileReader reader = new FileReader("src/test/resources/valuesDocument.properties.txt");
-
-        Properties props=new Properties();
-        props.load(reader);
-        String firstNameValue= props.getProperty("firstName");
-        String lastNameValue = props.getProperty("lastName");
-        String emailAddressValue= props.getProperty("emailAddress");
-        String ageValue= props.getProperty("age");
-        String salaryValue= props.getProperty("salary");
-        String departmentValue=props.getProperty("department");
+//        String firstNameValue="Roxana";
+//        String lastNameValue = "Petrila";
+//        String emailAddressValue= "test@test.ro";
+//        String ageValue= "26";
+//        String salaryValue= "7000";
+//        String departmentValue= "QA";
 
         WebTablesPage webTablesPage = new WebTablesPage(getDriver());
-        webTablesPage.addNewEntry(firstNameValue, lastNameValue, emailAddressValue, ageValue, salaryValue, departmentValue);
+        webTablesPage.addNewEntry(webTableObject);
 
 
 //        webTablesPage.addRecord();
