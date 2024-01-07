@@ -1,5 +1,6 @@
 package Pages;
 
+import Logger.LoggerUtility;
 import ObjectData.FormTableObject;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -94,18 +95,22 @@ public class PracticeFormsPage extends BasePage {
     public void fillFirstName(String firstNameValue){
         elementMethods.fillElement(firstName, firstNameValue);
 //        firstName.sendKeys(firstNameValue);
+        LoggerUtility.info("The user fills first name" + firstNameValue);
     }
 
     public void fillLastName(String lastNAmeValue){
         lastName.sendKeys(lastNAmeValue);
+        LoggerUtility.info("The user fills last name: " + lastNAmeValue);
     }
 
     public void fillUserEmail(String emailAddressValue){
         emailAddress.sendKeys(emailAddressValue);
+        LoggerUtility.info("The user fills email address: " + emailAddressValue);
     }
 
     public void fillGender(){
         elementMethods.clickElement(gender);
+        LoggerUtility.info("The user clicks on gender " + gender);
 //        gender.click();
 
 
@@ -113,16 +118,19 @@ public class PracticeFormsPage extends BasePage {
 
     public void fillMobile(String mobileValue){
         mobile.sendKeys(mobileValue);
+        LoggerUtility.info("The user fills mobile value: " +  mobileValue);
     }
 
     public void fillSubjects(String subjectsValue){
         elementMethods.fillElement(subjects, subjectsValue, Keys.ENTER);
+        LoggerUtility.info("The user fills subject value: " + subjectsValue);
 //        subjects.sendKeys(subjectsValue);
 //        subjects.sendKeys(Keys.ENTER);
     }
 
     public void fillReading(){
         reading.click();
+        LoggerUtility.info("The user clicks reading");
 
     }
 //    public void fillUploadPicture(){
@@ -132,12 +140,16 @@ public class PracticeFormsPage extends BasePage {
 
     public void fillAddress(String addressValue){
        address.sendKeys(addressValue);
+        LoggerUtility.info("The user fills address value " + addressValue);
     }
 
     public void fillState(String stateValue) {
         elementMethods.scrollByPixels(0,450);
+        LoggerUtility.info("The user scrolls down the page");
         elementMethods.clickJSElement(state);
+        LoggerUtility.info("The user clicks on state");
         elementMethods.fillElement(selectState, stateValue, Keys.ENTER);
+        LoggerUtility.info("The user state value " + stateValue);
 
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
 //        js.executeScript("window.scrollBy(0,450)", "");
@@ -148,7 +160,10 @@ public class PracticeFormsPage extends BasePage {
 
     public void fillCity(String cityValue){
         elementMethods.clickJSElement(city);
+        LoggerUtility.info("The user clicks on city");
         elementMethods.fillElement(selectCity, cityValue, Keys.ENTER);
+        LoggerUtility.info("The user fills city value " + cityValue);
+
 //       city.click();
 //       selectCity.sendKeys(cityValue);
 //        selectCity.sendKeys(Keys.ENTER);
@@ -156,6 +171,7 @@ public class PracticeFormsPage extends BasePage {
 
     public void clickSubmit(){
         elementMethods.clickJSElement(submitButton);
+        LoggerUtility.info("The user clicks submit button");
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
 //       js.executeScript("arguments[0].click();", submitButton);
 
@@ -163,6 +179,7 @@ public class PracticeFormsPage extends BasePage {
 
     public void clickCose(){
         closeButton.sendKeys(Keys.ENTER);
+        LoggerUtility.info("The user clicks close.");
     }
 
     public void validatePractiveForm(String expectedMessage, String firstNameValue, String lastNameValue, String emailAddressValue,

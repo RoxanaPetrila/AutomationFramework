@@ -18,13 +18,11 @@ public class FormTableTest extends Hooks {
 
         FormTableObject formTableObject = new FormTableObject(testData);
 
-
         HomePage homePage = new HomePage(getDriver());
         homePage.clickForms();
 
         FormsPage formsPage = new FormsPage(getDriver());
         formsPage.clickPracticeForms();
-
 
         PracticeFormsPage practiceFormsPage = new PracticeFormsPage(getDriver());
         practiceFormsPage.fillPracticeForm(formTableObject);

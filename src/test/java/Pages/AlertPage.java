@@ -1,5 +1,6 @@
 package Pages;
 
+import Logger.LoggerUtility;
 import ObjectData.AlertObject;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -42,7 +43,10 @@ public class AlertPage extends BasePage{
     //apoi se fac metodele
     public void interractAlertOk(){
         alertOkButton.click();
+        LoggerUtility.info("User clicks on OK button");
         alertMethods.acceptAlert();
+        LoggerUtility.info("User accepts alert");
+
 //        Alert alertOk = driver.switchTo().alert();
 //        alertOk.accept();
     }
@@ -50,7 +54,9 @@ public class AlertPage extends BasePage{
 
     public void interractAlertDelay(){
         alertDelayButton.click();
+        LoggerUtility.info("User clicks on delay alert button");
         alertMethods.acceptAlert();
+        LoggerUtility.info("User accepts alert");
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //        wait.until(ExpectedConditions.alertIsPresent());
 //        Alert alertDelay = driver.switchTo().alert();
@@ -59,13 +65,17 @@ public class AlertPage extends BasePage{
 
     public void interractAlertDismiss(){
        alertOkCancelButton.click();
+        LoggerUtility.info("User clicks on cancel alert button ");
        alertMethods.cancelAlert();
+        LoggerUtility.info("User clicks on cancel button");
 //        Alert alertOkCancel = driver.switchTo().alert();
 //        alertOkCancel .dismiss();
     }
     public void interractAlertValue(AlertObject alertObject){
         alertValueButton.click();
+        LoggerUtility.info("User clicks alert button");
         alertMethods.fillAlert(alertObject.getAlertValue());
+        LoggerUtility.info("User fills alert value");
 //        Alert alertValue = driver.switchTo().alert();
 //        alertValue.sendKeys(value);
 //        alertValue .accept();

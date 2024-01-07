@@ -1,5 +1,6 @@
 package Pages;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,5 +16,6 @@ public class FormsPage extends BasePage {
     private WebElement practiceForms;
     public void clickPracticeForms(){
         practiceForms.click();
+        LoggerUtility.info("The user clicks on Forms page");
     }
 }

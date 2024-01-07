@@ -1,5 +1,6 @@
 package Pages;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,8 +18,12 @@ public class FramesPage extends BasePage {
 
     public void interractFrame1(){
         frameMethods.switchToFrame("frame1");
+        LoggerUtility.info("The user switches to 1st frame");
         System.out.println(frameText.getText());
+        LoggerUtility.info("The user prints the frame Text value");
         frameMethods.switchMainFrame();
+        LoggerUtility.info("The user switches back on default frame");
+
     }
 
 //    public void frameTextget(){;
@@ -28,8 +33,9 @@ public class FramesPage extends BasePage {
 
     public void interractFrame2(){
         frameMethods.switchToFrame("frame2");
+        LoggerUtility.info("The user switches to 2nd frame");
         System.out.println(frameText.getText());
-
+        LoggerUtility.info("The user prints the frame Text value");
     }
 
     }

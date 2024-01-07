@@ -2,8 +2,13 @@
 <suite name = "Parallel Testing Suite">
     <test name = "Parallel Tests" thread-count="3" parallel = "classes">
 
-        <packages>
-            <package name="Tests.*"/>
-        </packages>
+<!--        <packages>-->
+<!--            <package name="Tests.*"/>-->
+<!--        </packages>-->
+
+        <classes>
+            <class name="Tests.FrameTest"></class>
+            <class name="Tests.FormTableTest"></class>
+        </classes>
     </test>
 </suite>
