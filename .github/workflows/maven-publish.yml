@@ -3,9 +3,9 @@
 
 name: Maven Package
 
-on:
+on: 
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
@@ -13,7 +13,7 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions: write-all
-  
+
 
     steps:
     - uses: actions/checkout@v3
