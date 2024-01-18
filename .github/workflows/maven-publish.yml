@@ -33,6 +33,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: RegressionLogs
-        path: target/logs/ouput.log
+        path: target/logs/output.log
 
    
