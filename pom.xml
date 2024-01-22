@@ -79,7 +79,7 @@
                     <configuration>
                         <systemPropertyVariables>
                             <browser>chrome</browser>
-                            <cicd>true</cicd>
+                            <cicd>false</cicd>
                         </systemPropertyVariables>
 
                     </configuration>

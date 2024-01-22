@@ -10,11 +10,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import SharedData.Hooks;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WindowTest extends SharedData {
+public class WindowTest extends Hooks {
 
 
     @Test
