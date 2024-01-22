@@ -52,6 +52,7 @@ public class WebTablesPage extends BasePage{
         elementMethods.fillElement(ageElement, webTableObject.getAgeValue());
         elementMethods.fillElement(salaryElement, webTableObject.getSalaryValue());
         elementMethods.fillElement(departmentElement, webTableObject.getDepartmentValue());
+        elementMethods.clickElement(submitButton);
 //        firstName.sendKeys(firstNameValue);
 //        lastName.sendKeys(lastNameValue);
 //        emailAddress.sendKeys(emailAddressValue);
